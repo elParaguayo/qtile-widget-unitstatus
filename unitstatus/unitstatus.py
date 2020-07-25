@@ -138,7 +138,7 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
         self.drawer.draw(offsetx=self.offset, width=self.width)
 
     # This is just Drawer's "_rounded_rect" but with a bigger corner radius
-    def cirlce(self, x, y, width, height, linewidth):
+    def circle(self, x, y, width, height, linewidth):
         aspect = 1.0
         corner_radius = height / 3.0
         radius = corner_radius / aspect
@@ -163,5 +163,5 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
         self.drawer.set_source_rgb(statecols[1])
         self.drawer.ctx.fill()
         self.drawer.set_source_rgb(statecols[0])
-        self.cirlce(x, y, width, height, linewidth)
+        self.circle(x, y, width, height, linewidth)
         self.drawer.ctx.stroke()
