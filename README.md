@@ -55,6 +55,10 @@ The widget can be customised with the following arguments:
 
 <table>
     <tr>
+            <td>bus_name</td>
+            <td>Which bus to use. Accepts 'system' or 'session'</td>
+    </tr>
+    <tr>
             <td>font</td>
             <td>Default font</td>
     </tr>

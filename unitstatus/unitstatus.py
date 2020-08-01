@@ -9,6 +9,7 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
 
     orientations = base.ORIENTATION_HORIZONTAL
     defaults = [
+        ("bus_name", "system", "Which bus to use. Accepts 'system' or 'session'.")
         ("font", "sans", "Default font"),
         ("fontsize", None, "Font size"),
         ("unitname", "NetworkManager.service", "Name of systemd unit."),
@@ -40,7 +41,11 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
         self.colours = {}
         for state, cols in self.state_map.items():
             self.colours[state] = tuple(getattr(self, col) for col in cols)
-        self.bus = pydbus.SystemBus()
+        if self.bus_name == "session":
+            self.bus = pydbus.SessionBus()
+        else:
+            self.bus = pydbus.SystemBus()
+
         self.systemd = self.bus.get(".systemd1")
 
     def find_unit(self):
