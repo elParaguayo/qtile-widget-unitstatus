@@ -9,7 +9,7 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
 
     orientations = base.ORIENTATION_HORIZONTAL
     defaults = [
-        ("bus_name", "system", "Which bus to use. Accepts 'system' or 'session'.")
+        ("bus_name", "system", "Which bus to use. Accepts 'system' or 'session'."),
         ("font", "sans", "Default font"),
         ("fontsize", None, "Font size"),
         ("unitname", "NetworkManager.service", "Name of systemd unit."),
