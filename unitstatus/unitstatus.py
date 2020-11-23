@@ -9,7 +9,8 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
 
     orientations = base.ORIENTATION_HORIZONTAL
     defaults = [
-        ("bus_name", "system", "Which bus to use. Accepts 'system' or 'session'."),
+        ("bus_name", "system",
+                     "Which bus to use. Accepts 'system' or 'session'."),
         ("font", "sans", "Default font"),
         ("fontsize", None, "Font size"),
         ("unitname", "NetworkManager.service", "Name of systemd unit."),
@@ -27,7 +28,7 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
           "failed": ("colour_failed", "colour_failed"),
           "not-found": ("colour_inactive", "colour_failed"),
           "dead": ("colour_dead", "colour_dead"),
-        },
+          },
          "Map of indicator colours (border, fill)")
     ]
 
@@ -90,7 +91,8 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
             calc = self.bar.height - self.margin * 2
             self.fontsize = max(calc, 1)
 
-        # Create layout with basic settings (we can override these when we draw)
+        # Create layout with basic settings
+        # (we can override these when we draw)
         self.layout = self.drawer.textlayout(
             "",
             "ffffff",
@@ -118,8 +120,6 @@ class UnitStatus(base._Widget, base.PaddingMixin, base.MarginMixin):
 
     def draw(self):
         self.drawer.clear(self.background or self.bar.background)
-
-        offset = self.margin
 
         self.layout.text = self.label
         self.layout.font_family = self.font
